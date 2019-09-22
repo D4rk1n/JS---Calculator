@@ -1,0 +1,52 @@
+* , * ::before ,* ::after {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background : linear-gradient(to left,#AA55FF , #FF55AA)
+}
+
+.calc {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns:  repeat(4,120px);
+    grid-template-rows: minmax(150px,auto) repeat(5,120px);
+
+}
+.calc > button{
+    cursor: pointer;
+    font-size: 2rem;
+    color: rgb(70, 0, 70);
+    background-color: rgba(255,255,255,.8);
+    border: 1px solid #dc91e5;
+    outline: none;
+}
+
+.calc > button:hover{
+    background-color: rgba(255,255,255,1);
+    color: rgb(120, 0, 120);
+}
+ 
+.display{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 10px;
+    grid-column: 1 / -1;
+    background-color: rgba(0,0,0,.5);
+    color : rgba(255,255,255,.8)
+}
+.wide-btn
+{
+    grid-column: span 2;
+}
+.vertical-btn {
+    grid-row: span 2;
+}
