@@ -9,6 +9,7 @@ class Calcualtor {
         this.preOperand = "";
         this.appendOp = false;
         this.parenthesis = false;
+        this.negative = true;
         this.rP = 0;
         this.lP = 0;
     }
@@ -22,14 +23,28 @@ class Calcualtor {
     }
     operate(op)
     {
+        this.currOperand = this.currOperand.toString();
         if(this.appendOp)  
         {
             this.preOperand = this.preOperand + this.currOperand + op;
             this.currOperand = "" ;
             this.currDisplay.innerText = this.currOperand;
             this.appendOp = false;
-            this.update();
+            
         }
+        else if(this.negative&& this.currOperand == "" && op=='-')
+        {
+            if(this.preOperand.slice(-1) == '-')
+            {
+                this.preOperand = this.preOperand.slice(0,-1);
+                this.preOperand += "+" ;
+            }
+            else 
+            {
+            this.currOperand += op;
+            }
+        }
+        this.update();
     }
     parentheses(p)
     {
