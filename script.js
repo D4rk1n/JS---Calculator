@@ -108,12 +108,20 @@ class Calcualtor {
         {
             this.rP -=1;
             result=result.replace('(','');
+            console.log(result);
+            if(result.indexOf('(') > result.indexOf(')') )
+            {
+                
+                result=result.replace(')','');
+                console.log(result);
+                this.lP -=1;
+            }
         }
         this.clear();
         this.currOperand = eval(result);
         this.update();
         this.appendOp = true ;
-        console.log(result);
+        
     }
 }
 
