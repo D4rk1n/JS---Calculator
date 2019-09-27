@@ -24,6 +24,10 @@ class Calcualtor {
     operate(op)
     {
         this.currOperand = this.currOperand.toString();
+        if(this.currOperand.slice(-1) == '.')
+        {
+            this.currOperand = this.currOperand.slice(0,-1);
+        }
         if(this.appendOp)  
         {
             this.preOperand = this.preOperand + this.currOperand + op;
@@ -89,6 +93,8 @@ class Calcualtor {
         
         var result = this.preDisplay.innerText+this.currDisplay.innerText;
         if(this.currDisplay.innerText=="")
+            result = result.slice(0,-1);
+        if(result.slice(-1) == '.')
             result = result.slice(0,-1);
         while(result.includes('×') || result.includes('÷') )
         {
