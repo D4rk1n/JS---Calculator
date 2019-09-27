@@ -55,6 +55,7 @@ class Calcualtor {
     }
     delete()
     {
+        this.currOperand = this.currOperand.toString();
         this.currOperand = this.currOperand.slice(0, -1);
         this.update();
     }
