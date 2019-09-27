@@ -16,7 +16,7 @@ body{
     justify-content: center;
     align-content: center;
     min-height: 100vh;
-    grid-template-columns:  repeat(8,60px);
+    grid-template-columns:  repeat(8,50px);
     grid-template-rows: minmax(150px,auto) repeat(5,100px);
 
 }
