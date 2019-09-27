@@ -17,6 +17,7 @@ class Calcualtor {
     {
         this.currOperand = this.currOperand.toString();
         if(no=='.'&& this.currOperand.includes('.')) return;
+        if(no=='0' && this.currOperand == "" ) return;
         this.currOperand += no;
         this.update();
         this.appendOp = true;
