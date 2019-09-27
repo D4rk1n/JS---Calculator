@@ -93,6 +93,8 @@ class Calcualtor {
     {
         
         var result = this.preDisplay.innerText+this.currDisplay.innerText;
+        if(this.currDisplay.innerText=='(')
+            result = result.slice(0,-2);
         if(this.currDisplay.innerText=="")
             result = result.slice(0,-1);
         if(result.slice(-1) == '.')
