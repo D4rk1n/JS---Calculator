@@ -16,6 +16,7 @@ class Calcualtor {
     append(no)
     {
         this.currOperand = this.currOperand.toString();
+        if(this.currOperand.slice(-1) == ')') return;
         if(no=='.'&& this.currOperand.includes('.')) return;
         if(no=='0' && this.currOperand == "" ) return;
         this.currOperand += no;
@@ -124,7 +125,13 @@ class Calcualtor {
             }
         }
         this.clear();
-        this.currOperand = eval(result);
+        try { 
+            this.currOperand = eval(result);
+        }
+        catch(err)
+        {
+            this.currOperand = "Syntax Error"
+        }
         this.update();
         this.appendOp = true ;
         
