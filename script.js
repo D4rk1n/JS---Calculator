@@ -37,9 +37,9 @@ class Calcualtor {
             this.appendOp = false;
             
         }
-        else if(this.negative&& this.currOperand == "" && op=='-')
+        else if(this.negative&& (this.currOperand == "" || this.currOperand == "(" ) && op=='-')
         {
-            if(this.preOperand.slice(-1) == '-')
+            if(this.preOperand.slice(-1) == '-' && !this.currOperand == "(")
             {
                 this.preOperand = this.preOperand.slice(0,-1);
                 this.preOperand += "+" ;
@@ -107,6 +107,12 @@ class Calcualtor {
         while(this.rP > this.lP)
         {
             this.rP -=1;
+            let i = result.indexOf('(');
+            if(result[i+1] == '-'&&result[i-1] == '-')
+            {
+                result=result.replace('-','');
+                result=result.replace('-','+');
+            }
             result=result.replace('(','');
             console.log(result);
             if(result.indexOf('(') > result.indexOf(')') )
